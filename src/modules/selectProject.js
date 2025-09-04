@@ -19,5 +19,4 @@ function projectSelected(event) {
     }
 }
 
-const projectSelection = document.getElementById("project-select");
-projectSelection.addEventListener("change", projectSelected)
+export {projectSelected};

@@ -6,15 +6,55 @@
     <title>Document</title>
 </head>
 <body>
-    <label for="project-select">Select a to-do list</label>
-    <select name="lists" id="project-select">
-
-    </select>
     <h1>Sunny's Todo</h1>
+    <label for="project-select">Select a to-do list</label>
+    <select name="projectList" id="project-select">
+        <!-- Projects List-->
+    </select>
+
+    <dialog id="newProject">
+        <form>
+            <button id="closeModal" type="button" autofocus>Close</button>
+
+            <label for="projectName">Project Name:</label>
+            <input type="text" id="projectName" name="projectName">
+
+            <button id="projectSubmit" type="button">Submit</button>
+        </form>
+    </dialog>
+    <button id="projectButton">Create New Project</button>
+
+
+    <dialog id="newItem">
+        <form>
+            <button id="closeModal" autofocus>Close</button>
+
+            <label for="itemname">Item Name:</label>
+            <input type="text" id="itemname" name="itemname">
+
+            <label for="itemDesc">Description Name:</label>
+            <textarea id="itemDesc" name="itemDesc" row="4" col="10">
+
+            <label for="itemDue">Due:</label>
+            <input type="date" id="itemDue" name="itemDue">
+            
+            <p>Item Priority</p>
+            <label for="high">High</label>
+            <input type="radio" id="high" name="priority" value="high">
+            <label for="medium">Medium</label>
+            <input type="radio" id="medium" name="priority" value="medium">
+            <label for="low">Low</label>
+            <input type="radio" id="low" name="priority" value="low">
+
+            <button id="submitButton" type="button">Submit</button>
+        </form>
+    </dialog>
+
     <div>
         <ul class="list">
-            
+            <!-- Item List-->
         </ul>
+        <button>New List Item</button>
     </div>
 </body>
 </html>

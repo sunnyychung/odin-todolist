@@ -1,48 +1,29 @@
-import { projects, Project } from "./modules/newProject.js";
+import { Project } from "./modules/newProject.js";
+import { projectSelected } from "./modules/selectProject.js";
 
-class todoItem {
-    constructor(title, description, dueDate, priority) {
-        this.title = title;
-        this.description = description;
-        this.dueDate = dueDate;
-        this.priority = priority;
-        this.checked = false
-    }
+const modalButton = document.getElementById("projectButton");
+const projectModal = document.getElementById("newProject");
+const closeModal = document.getElementById("closeModal");
+const submitButton = document.getElementById("projectSubmit");
 
-    getInfo() {
-        return `Title: ${this.title}, Desc: ${this.description}, Due: ${this.dueDate}, Priority: ${this.priority}, Checked: ${this.checked}`;
-    }
+modalButton.addEventListener("click", () => {
+    projectModal.showModal();
+})
 
-    getStatus() {
-        console.log(this.checked);
-    }
+closeModal.addEventListener("click", (target) => {
+    target.target.parentNode.parentNode.close();
+})
 
-    toggleStatus() {
-        this.checked = !this.checked;
-    }
-}
+submitButton.addEventListener("click", () => {
+    const projectName = document.getElementById("projectName").value;
+    new Project(projectName);
 
-function clearItems() {
-    const list = document.querySelector(".list");
-    
-    while (list.firstChild) {
-        list.removeChild(list.firstChild);
-    }
-}
+    projectModal.close();
+})
 
-function projectSelected(event) {
-    clearItems()
-
-    const targetedProject = event.target.value;
-    const projectName = projects[targetedProject];
-
-    if (projectName) {
-        projectName.getItems();
-    }
-}
-
+// EventListener for Changing Projects
 const projectSelection = document.getElementById("project-select");
-projectSelection.addEventListener("change", projectSelected)
+projectSelection.addEventListener("change", projectSelected);
 
 // Template Created
 const welcome = new Project("welcome");
