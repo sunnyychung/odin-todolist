@@ -1,10 +1,6 @@
-let projects = {};
+import { addToList } from "./newProject";
 
-function addToList(project) {
-    projects[project.name] = project;
-}
-
-function addToSelect(project) {
+function optionToDOM(project) {
     addToList(project);
 
     const projectSelector = document.getElementById("project-select");
@@ -16,4 +12,4 @@ function addToSelect(project) {
     projectSelector.appendChild(projectOption);
 }
 
-export {addToSelect, projects};
+export { optionToDOM };
