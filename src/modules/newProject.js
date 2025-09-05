@@ -1,10 +1,32 @@
-import { optionToDOM } from "./projectsToDOM.js";
 import { Item } from "./newItem.js";
+import { clearItems } from "./selectProject.js";
 
 let projects = {};
 
-function addToList(project) {
+function addToProjects(project) {
     projects[project.name] = project;
+}
+
+function findProject(projectName) {
+    if (projects[projectName]) {
+        return projects[projectName];
+    }
+}
+
+function projectsToDOM(project) {
+    addToProjects(project);
+
+    const projectSelector = document.getElementById("project-select");
+    const projectOption = document.createElement("option");
+
+    projectOption.value = project.name;
+    projectOption.textContent = project.name;
+
+    projectSelector.appendChild(projectOption);
+}
+
+function createProject(projectName) {
+    new Project(projectName);
 }
 
 class Project {
@@ -12,12 +34,15 @@ class Project {
         this.name = name;
         this.itemList = [];
 
-        optionToDOM(this);
+        projectsToDOM(this);
     }
 
     createItem(itemName, description, dueDate, priority) {
         const newItem = new Item(itemName, description, dueDate, priority);
         this.itemList.push(newItem);
+
+        clearItems();
+        this.getItems();
     }
 
     getItems() {
@@ -32,4 +57,4 @@ class Project {
     }
 }
 
-export { projects, addToList, Project };
+export { projects, createProject, findProject};

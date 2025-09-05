@@ -1,5 +1,11 @@
 import { projects } from "./newProject";
 
+function changeProjects() {
+    // EventListener for Changing Projects
+    const projectSelection = document.getElementById("project-select");
+    projectSelection.addEventListener("change", projectSelected);
+}
+
 function clearItems() {
     const list = document.querySelector(".list");
     
@@ -19,4 +25,4 @@ function projectSelected(event) {
     }
 }
 
-export {projectSelected};
+export { projectSelected, clearItems, changeProjects };

@@ -14,7 +14,7 @@
 
     <dialog id="newProject">
         <form>
-            <button id="closeModal" type="button" autofocus>Close</button>
+            <button class="closeModal" type="button" autofocus>Close</button>
 
             <label for="projectName">Project Name:</label>
             <input type="text" id="projectName" name="projectName">
@@ -27,13 +27,13 @@
 
     <dialog id="newItem">
         <form>
-            <button id="closeModal" autofocus>Close</button>
+            <button class="closeModal" type="button" autofocus>Close</button>
 
-            <label for="itemname">Item Name:</label>
-            <input type="text" id="itemname" name="itemname">
+            <label for="itemName">Item Name:</label>
+            <input type="text" id="itemName" name="itemName">
 
             <label for="itemDesc">Description Name:</label>
-            <textarea id="itemDesc" name="itemDesc" row="4" col="10">
+            <textarea id="itemDesc" name="itemDesc" row="4" col="10"></textarea>
 
             <label for="itemDue">Due:</label>
             <input type="date" id="itemDue" name="itemDue">
@@ -46,7 +46,7 @@
             <label for="low">Low</label>
             <input type="radio" id="low" name="priority" value="low">
 
-            <button id="submitButton" type="button">Submit</button>
+            <button id="itemSubmit" type="button">Submit</button>
         </form>
     </dialog>
 
@@ -54,7 +54,7 @@
         <ul class="list">
             <!-- Item List-->
         </ul>
-        <button>New List Item</button>
+        <button id="itemButton">New List Item</button>
     </div>
 </body>
 </html>
