@@ -7,12 +7,16 @@ class Item {
         this.checked = false
     }
 
-    getInfo() {
-        return `Title: ${this.title}, Desc: ${this.description}, Due: ${this.dueDate}, Priority: ${this.priority}, Checked: ${this.checked}`;
+    getTitle() {
+        return this.title; 
     }
 
-    getStatus() {
-        console.log(this.checked);
+    getDesc() {
+        return this.description;
+    }
+
+    getDue() {
+        return this.dueDate;
     }
 
     toggleStatus() {
