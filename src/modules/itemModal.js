@@ -15,7 +15,7 @@ function createItemModal() {
         const itemDue = document.getElementById("itemDue").value
         const itemPriority = document.querySelector('input[name="priority"]:checked')?.value;
         
-        const selectedProject = document.getElementById("project-select").value;
+        const selectedProject = document.querySelector('.selectedProject').textContent;
         const projectQuery = findProject(selectedProject);
 
         projectQuery.createItem(itemName, itemDesc, itemDue, itemPriority);

@@ -1,7 +1,25 @@
+:root {
+    font-size: 1.3vw;
+}
+
+li {
+    list-style-type: none;
+}
+
 .hide {
     display: none;
 }
 
 .show {
     display: block;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 2rem;
+}
+
+.project:hover {
+    cursor: pointer;
 }

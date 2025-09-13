@@ -6,11 +6,38 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Sunny's Todo</h1>
-    <label for="project-select">Select a to-do list</label>
-    <select name="projectList" id="project-select">
-        <!-- Projects List-->
-    </select>
+    <div class="content">
+        <div class="sidebar">
+            <h1>Odin-Do</h1>
+            <div class="project-select">
+                <p>Projects</p>
+                <div id="projectList">
+                    <!-- Projects List-->
+                </div>
+            </div>
+
+            <button id="projectButton">Create New Project</button>
+        </div>
+
+        <div class="main">
+            <h1 class="selectedProject"></h1>
+            <ul class="list">
+                <!-- Item List-->
+                <!-- <li>
+                    <div>
+                        <input type="checkbox" id="item1" name="item1" />
+                        <label id="item1" for="item1">Scales</label>
+                        <input type="image" src="./resources/imgs/trash-icon.png" height="20px"/>
+                        <div id="dropdown1">
+                            <input src=""></button>
+                            <p>dadada</p>
+                        </div>
+                    </div>
+                </li> -->
+            </ul>
+            <button id="itemButton">New List Item</button>
+        </div>
+    </div>
 
     <dialog id="newProject">
         <form>
@@ -22,7 +49,6 @@
             <button id="projectSubmit" type="button">Submit</button>
         </form>
     </dialog>
-    <button id="projectButton">Create New Project</button>
 
 
     <dialog id="newItem">
@@ -49,23 +75,5 @@
             <button id="itemSubmit" type="button">Submit</button>
         </form>
     </dialog>
-
-    <div>
-        <ul class="list">
-            <!-- Item List-->
-            <!-- <li>
-                <div>
-                    <input type="checkbox" id="item1" name="item1" />
-                    <label id="item1" for="item1">Scales</label>
-                    <input type="image" src="./resources/imgs/trash-icon.png" height="20px"/>
-                    <div id="dropdown1">
-                        <input src=""></button>
-                        <p>dadada</p>
-                    </div>
-                </div>
-            </li> -->
-        </ul>
-        <button id="itemButton">New List Item</button>
-    </div>
 </body>
 </html>

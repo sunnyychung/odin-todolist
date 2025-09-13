@@ -24,4 +24,12 @@ class Item {
     }
 }
 
-export { Item };
+function clearItems() {
+    const list = document.querySelector(".list");
+    
+    while (list.firstChild) {
+        list.removeChild(list.firstChild);
+    }
+}
+
+export { Item, clearItems };

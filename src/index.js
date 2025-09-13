@@ -1,5 +1,4 @@
 import "./style.css";
-import { changeProjects } from "./modules/selectProject.js";
 import { createProjectModal } from "./modules/projectModal.js";
 import { createItemModal } from "./modules/itemModal.js";
 
@@ -17,4 +16,3 @@ function createModals() {
 }
 
 createModals();
-changeProjects();

@@ -1,5 +1,6 @@
 import { Item } from "./newItem.js";
-import { clearItems } from "./selectProject.js";
+import { clearItems } from "./newItem.js";
+import { projectSelected } from "./selectProject.js";
 import trashLogo from "../resources/imgs/trash-icon.png";
 import dropdownArrow from "../resources/imgs/dropdown-arrow.png";
 
@@ -18,13 +19,18 @@ function findProject(projectName) {
 function projectsToDOM(project) {
     addToProjects(project);
 
-    const projectSelector = document.getElementById("project-select");
-    const projectOption = document.createElement("option");
-
-    projectOption.value = project.name;
+    const projectSelector = document.getElementById("projectList");
+    const projectOption = document.createElement("div");
     projectOption.textContent = project.name;
+    projectOption.className = "project";
+
+    projectOption.addEventListener("click", (target) => {
+        projectSelected(target.target.textContent);
+    })
 
     projectSelector.appendChild(projectOption);
+
+    projectSelected(project.name);
 }
 
 function createProject(projectName) {
@@ -35,7 +41,7 @@ function createItemDOM(desc, due, index) {
     // Checkbox
     const itemChecked = document.createElement("input");
     itemChecked.type = "checkbox";
-    itemChecked.name = `itemTitle`;
+    itemChecked.id = `itemTitle`;
 
     // Item Description Info
 
@@ -86,6 +92,7 @@ class Project {
         this.itemList = [];
 
         projectsToDOM(this);
+
     }
 
     createItem(itemName, description, dueDate, priority) {

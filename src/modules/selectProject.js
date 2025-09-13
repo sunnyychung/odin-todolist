@@ -1,28 +1,21 @@
 import { projects } from "./newProject";
+import { clearItems } from "./newItem";
 
-function changeProjects() {
-    // EventListener for Changing Projects
-    const projectSelection = document.getElementById("project-select");
-    projectSelection.addEventListener("change", projectSelected);
+function changeDisplayedProject(selectedName) {
+    const selected = document.querySelector('.selectedProject');
+
+    selected.textContent = selectedName;
 }
 
-function clearItems() {
-    const list = document.querySelector(".list");
-    
-    while (list.firstChild) {
-        list.removeChild(list.firstChild);
-    }
-}
-
-function projectSelected(event) {
+function projectSelected(selectedName) {
     clearItems()
 
-    const targetedProject = event.target.value;
-    const projectName = projects[targetedProject];
+    const projectName = projects[selectedName];
 
     if (projectName) {
         projectName.getItems();
+        changeDisplayedProject(selectedName);
     }
 }
 
-export { projectSelected, clearItems, changeProjects };
+export { projectSelected };
