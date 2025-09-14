@@ -1,5 +1,13 @@
+@font-face {
+    font-family: Windsol;
+    src: url(./resources/fonts/Windsol-Regular.ttf);
+}
+
 :root {
     font-size: 1.3vw;
+    background-color: rgb(44, 44, 44);
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 li {
@@ -14,12 +22,156 @@ li {
     display: block;
 }
 
+.bold {
+    font-weight: 1000;
+}
+
 .content {
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    gap: 2rem;
+    grid-template-columns: minmax(200px, 1fr) minmax(500px, 4fr);
+    margin: 1rem 3rem;
 }
 
 .project:hover {
     cursor: pointer;
+}
+
+.main {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    margin-top: 1.8rem;
+    padding: 1rem;
+    padding-left: 1.5rem;
+    border-radius: 20px;
+
+    -webkit-box-shadow: -3px 1px 12px -1px #000000; 
+    box-shadow: -3px 1px 12px -1px #000000;
+}
+
+#itemButton {
+    background-color: transparent;
+    background-image: url("./resources/imgs/plus.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-style: none;
+    margin-left: 16rem;
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+#itemButton:hover {
+    border-style: dashed;
+}
+
+.selectedProject {
+    padding: 0;
+    margin: 0;
+}
+
+.list {
+    padding: 0;
+    padding-right: 20rem;
+}
+
+.list li {
+    -webkit-box-shadow: -6px 8px 12px -5px rgba(0,0,0,0.71); 
+    box-shadow: -6px 8px 12px -5px rgba(0,0,0,0.71);
+    border-style: solid;
+    color: black;
+    font-family: Windsol, Helvetica, Arial, sans-serif;
+    font-size: 1.3rem;
+
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    padding-top: 0;
+    margin-bottom: 2rem;
+
+    display: grid;
+    grid-template: 1fr 0.1fr / 3fr 2fr 0.5fr;
+}
+
+.list li:hover {
+    -webkit-box-shadow: -6px 8px 12px -5px #000000; 
+    box-shadow: -6px 8px 12px -5px #000000;
+}
+
+.high {
+    border-color: rgba(190, 1, 1, 0.52);
+    border-width: 0.2rem;
+}
+
+.medium {
+    border-color: rgba(255, 123, 0, 0.52);
+    border-width: 0.2rem;
+}
+
+.keyInfo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dueDate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete input {
+    height: 1.3rem;
+    padding: 0.2rem;
+}
+
+.delete input:hover {
+    border-style: dashed;
+}
+
+.dropdownDesc {
+    grid-column: 1 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    font-size: 1rem;
+}
+
+.project {
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    font-family: Windsol, Helvetica, Arial, sans-serif;
+    background-color: white;
+    color: black;
+    margin-right: 10vw;
+    margin-bottom: 1vh;
+    padding: 0.3rem;
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75); 
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+}
+
+#projectButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    margin-top: 0.5rem;
+    padding: 0.5vh 2.5vw;
+    border-color: transparent;
+}
+
+#projectButton:hover {
+    border-color: rgba(0, 149, 255, 0.506);
+}
+
+.plus {
+    height: 20px;
 }

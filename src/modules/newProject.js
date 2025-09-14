@@ -1,8 +1,6 @@
-import { Item } from "./newItem.js";
+import { Item, createItemDOM } from "./newItem.js";
 import { clearItems } from "./newItem.js";
 import { projectSelected } from "./selectProject.js";
-import trashLogo from "../resources/imgs/trash-icon.png";
-import dropdownArrow from "../resources/imgs/dropdown-arrow.png";
 
 let projects = {};
 
@@ -37,55 +35,6 @@ function createProject(projectName) {
     new Project(projectName);
 }
 
-function createItemDOM(desc, due, index) {
-    // Checkbox
-    const itemChecked = document.createElement("input");
-    itemChecked.type = "checkbox";
-    itemChecked.id = `itemTitle`;
-
-    // Item Description Info
-
-    const itemTitle = document.createElement("label");
-    itemTitle.htmlFor = `itemTitle`;
-
-    // Item Due Info
-
-    const itemDue = document.createElement("p");
-    itemDue.textContent = due;
-
-    // Delete Icon
-
-    const deleteItem = document.createElement("input");
-    deleteItem.type = "image";
-    deleteItem.src = trashLogo;
-    deleteItem.height = 20; // REMOVE THIS AFTER FINISHED
-
-    // Dropdown Section
-
-    const dropdownSection = document.createElement("div");
-    const dropdownButton= document.createElement("input");
-    const dropdownInfo = document.createElement("p");
-
-    dropdownButton.type = "image";
-    dropdownButton.src = dropdownArrow;
-    dropdownButton.height = 20;
-
-    dropdownInfo.className = "hide"
-    dropdownInfo.id = "dropInfo"
-    dropdownInfo.textContent = desc;
-
-    dropdownButton.addEventListener("click", () => {
-        dropdownInfo.classList.toggle("show");
-    })
-
-    dropdownSection.appendChild(dropdownButton);
-    dropdownSection.appendChild(dropdownInfo);
-
-    
-
-    return { itemChecked, itemTitle, itemDue, deleteItem, dropdownSection};
-}
-
 class Project {
     constructor(name) {
         this.name = name;
@@ -107,13 +56,7 @@ class Project {
         this.itemList.forEach((element, index) => {
             const domList = document.querySelector(".list");
 
-            const item = document.createElement("li");
-            item.id = `item-${index}`;
-
-            const itemDiv = document.createElement("div");
-            const { itemChecked, itemTitle, itemDue, deleteItem, dropdownSection } = createItemDOM(element.getDesc(), element.getDue());
-
-            itemTitle.textContent = element.getTitle();
+            const { item, itemChecked, deleteItem } = createItemDOM(element, index);
 
             itemChecked.addEventListener("change", () => {
                 element.toggleStatus();
@@ -126,14 +69,6 @@ class Project {
                 clearItems();
                 this.getItems();
             })
-
-            itemDiv.appendChild(itemChecked);
-            itemDiv.appendChild(itemTitle);
-            itemDiv.appendChild(itemDue);
-            itemDiv.appendChild(deleteItem);
-            itemDiv.appendChild(dropdownSection);
-
-            item.appendChild(itemDiv);
 
             domList.appendChild(item);
         })
