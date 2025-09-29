@@ -34,8 +34,6 @@ function projectsToDOM(project) {
         delete projects[project.name];
         updateStorage();
         projectOption.remove();
-
-        console.log(projects)
     })
 
     projectOption.appendChild(deleteProject);

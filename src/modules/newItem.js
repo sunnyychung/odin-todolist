@@ -118,8 +118,6 @@ function createItemDOM(element, index) {
     item.appendChild(deleteDiv);
     item.appendChild(dropdownDiv);
 
-    console.log(element.getPriority());
-
 
     return { item, itemChecked, deleteItem };
 }

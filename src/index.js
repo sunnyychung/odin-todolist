@@ -21,5 +21,3 @@ document.querySelector('.plus').src = plusImage;
 
 createModals();
 loadAssets();
-
-localStorage.clear();
