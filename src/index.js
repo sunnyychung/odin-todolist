@@ -2,7 +2,6 @@ import "./style.css";
 import { createProjectModal } from "./modules/projectModal.js";
 import { createItemModal } from "./modules/itemModal.js";
 import { loadAssets } from "./modules/loadProjects.js";
-import plusImage from "./resources/imgs/plus.png";
 
 function createModals() {
     const closeModal = document.querySelectorAll(".closeModal");
@@ -16,8 +15,6 @@ function createModals() {
     createItemModal();
     createProjectModal();
 }
-
-document.querySelector('.plus').src = plusImage;
 
 createModals();
 loadAssets();
