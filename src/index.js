@@ -17,7 +17,12 @@ function createModals() {
     createProjectModal();
 }
 
-document.querySelector('.plus').src = plusImage;
+document.addEventListener("DOMContentLoaded", () => {
+    const plusBtn = document.querySelector('.plus');
+    if (plusBtn) {
+        plusBtn.src = plusImage;
+    }
+});
 
 createModals();
 loadAssets();
