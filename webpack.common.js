@@ -1,20 +1,23 @@
 const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    entry: {
-        app: './src/index.js',
-    },
+    entry:  "./src/index.js",
     plugins: [
-        new HTMLWebpackPlugin({
+        new HtmlWebpackPlugin({
             template: "./src/template.html",
         }),
     ],
+    output: {
+        filename: "main.js",
+        path: path.resolve(__dirname , "dist"),
+        clean: true,         
+    },
     module: {
         rules: [
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader"]
+                use: ["style-loader", "css-loader"],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -22,13 +25,12 @@ module.exports = {
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
-                type: 'asset/resource',
+                type: "asset/resource",
             },
-        ]
-    },
-    output: {
-        filename: "main.js",
-        path: path.resolve(__dirname, "dist"),
-        clean: true,
+            {
+                test: /\.svg$/,
+                loader: 'svg-inline-loader'
+            }
+        ],
     },
 };
