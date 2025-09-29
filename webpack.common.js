@@ -8,6 +8,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Production',
+            template: "./src/template.html",
         }),
     ],
     module: {
@@ -27,8 +28,8 @@ module.exports = {
         ]
     },
     output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+        filename: "main.js",
+        path: path.resolve(__dirname, "dist"),
         clean: true,
     },
 };
