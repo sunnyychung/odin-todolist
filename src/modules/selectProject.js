@@ -1,4 +1,4 @@
-import { projects } from "./newProject";
+import { findProject } from "./newProject";
 import { clearItems } from "./newItem";
 
 function changeDisplayedProject(selectedName) {
@@ -10,10 +10,10 @@ function changeDisplayedProject(selectedName) {
 function projectSelected(selectedName) {
     clearItems()
 
-    const projectName = projects[selectedName];
+    const project = findProject(selectedName);
 
-    if (projectName) {
-        projectName.getItems();
+    if (project) {
+        project.getItems();
         changeDisplayedProject(selectedName);
     }
 }

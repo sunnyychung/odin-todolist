@@ -4,7 +4,7 @@
 }
 
 :root {
-    font-size: 1.3vw;
+    font-size: 2vh;
     background-color: rgb(44, 44, 44);
     color: white;
     font-family: Helvetica, Arial, sans-serif;
@@ -27,9 +27,9 @@ li {
 }
 
 .content {
-    display: grid;
-    grid-template-columns: minmax(200px, 1fr) minmax(500px, 4fr);
-    margin: 1rem 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3vh 5vw;
 }
 
 .project:hover {
@@ -38,10 +38,12 @@ li {
 
 .main {
     background-color: rgb(255, 255, 255);
+    width: max(50vw, 900px);
     color: black;
-    margin-top: 1.8rem;
-    padding: 1rem;
-    padding-left: 1.5rem;
+    margin-top: 3vh;
+    padding: 2vh 1vw;
+    padding-bottom: 4vh;
+    padding-left: 3vw;
     border-radius: 20px;
 
     -webkit-box-shadow: -3px 1px 12px -1px #000000; 
@@ -54,9 +56,9 @@ li {
     background-repeat: no-repeat;
     background-size: contain;
     border-style: none;
-    margin-left: 16rem;
-    height: 1.6rem;
-    width: 1.6rem;
+    margin-left: 1vw;
+    height: 2rem;
+    width: 2rem;
 }
 
 #itemButton:hover {
@@ -70,7 +72,7 @@ li {
 
 .list {
     padding: 0;
-    padding-right: 20rem;
+    padding-right: 7vw;
 }
 
 .list li {
@@ -82,12 +84,14 @@ li {
     font-size: 1.3rem;
 
     border-radius: 10px;
-    padding: 0.5rem 1rem;
+    padding: 2vh 1vw;
     padding-top: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 2vh;
 
     display: grid;
-    grid-template: 1fr 0.1fr / 3fr 2fr 0.5fr;
+    /* grid-template: 1fr 0.1fr / 3fr 2fr 0.5fr; */
+    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: 3fr 2fr 0.5fr;
 }
 
 .list li:hover {
@@ -97,19 +101,19 @@ li {
 
 .high {
     border-color: rgba(190, 1, 1, 0.52);
-    border-width: 0.2rem;
+    border-width: 5px;
 }
 
 .medium {
-    border-color: rgba(255, 123, 0, 0.52);
-    border-width: 0.2rem;
+    border-color: rgba(255, 213, 0, 0.52);
+    border-width: 5px;
 }
 
 .keyInfo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 1rem;
+    gap: 2vh;
 }
 
 .dueDate {
@@ -125,7 +129,7 @@ li {
 }
 
 .delete input {
-    height: 1.3rem;
+    height: 4vh;
     padding: 0.2rem;
 }
 
@@ -143,18 +147,39 @@ li {
     font-size: 1rem;
 }
 
+.sidebar {
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar h1 {
+    font-size: 2rem;
+}
+
 .project {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    
     border-radius: 10px;
     font-family: Windsol, Helvetica, Arial, sans-serif;
+    font-size: 3vh;
     background-color: white;
     color: black;
-    margin-right: 10vw;
+    height: 3vh;
+    width: max(200px, 12vw);
+
+    margin-right: 5vw;
     margin-bottom: 1vh;
-    padding: 0.3rem;
+    padding: 1vh 0.9vw 1vh 3vw;
     -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75); 
     box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+}
+
+.project input {
+    height: 2.8vh;
+    padding: 0.1rem;
 }
 
 #projectButton {
@@ -174,4 +199,12 @@ li {
 
 .plus {
     height: 20px;
+}
+
+#newProject form, #newItem form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2vh;
+    padding: 3rem;
 }
