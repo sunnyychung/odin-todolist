@@ -1,21 +1,21 @@
-import {findProject} from './newProject';
-import {clearItems} from './newItem';
+import { findProject } from "./newProject";
+import { clearItems } from "./newItem";
 
 function changeDisplayedProject(selectedName) {
-	const selected = document.querySelector('.selectedProject');
+  const selected = document.querySelector(".selectedProject");
 
-	selected.textContent = selectedName;
+  selected.textContent = selectedName;
 }
 
 function projectSelected(selectedName) {
-	clearItems();
+  clearItems();
 
-	const project = findProject(selectedName);
+  const project = findProject(selectedName);
 
-	if (project) {
-		project.getItems();
-		changeDisplayedProject(selectedName);
-	}
+  if (project) {
+    project.getItems();
+    changeDisplayedProject(selectedName);
+  }
 }
 
-export {projectSelected};
+export { projectSelected };

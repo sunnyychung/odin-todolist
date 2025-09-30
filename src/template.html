@@ -1,71 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="content">
-        <div class="sidebar">
-            <h1>Odin-Do</h1>
-            <div class="project-select">
-                <p>My Projects</p>
-                <div id="projectList">
-                    <!-- Projects List-->
-                </div>
-            </div>
-
-            <button id="projectButton"><img class="plus">New Project</button>
+      <div class="sidebar">
+        <h1>Odin-Do</h1>
+        <div class="project-select">
+          <p>My Projects</p>
+          <div id="projectList">
+            <!-- Projects List-->
+          </div>
         </div>
 
-        <div class="main">
-            <h1 class="selectedProject"></h1>
-            <ul class="list">
+        <button id="projectButton"><img class="plus" />New Project</button>
+      </div>
 
-            </ul>
-            <button id="itemButton"></button>
-        </div>
+      <div class="main">
+        <h1 class="selectedProject"></h1>
+        <ul class="list"></ul>
+        <button id="itemButton"></button>
+      </div>
     </div>
 
     <!-- New Project Modal -->
 
     <dialog id="newProject">
-        <form>
-            <button class="closeModal" type="button" autofocus>Close</button>
+      <form>
+        <button class="closeModal" type="button" autofocus>Close</button>
 
-            <label for="projectName">Project Name:</label>
-            <input type="text" id="projectName" name="projectName">
+        <label for="projectName">Project Name:</label>
+        <input type="text" id="projectName" name="projectName" />
 
-            <button id="projectSubmit" type="button">Submit</button>
-        </form>
+        <button id="projectSubmit" type="button">Submit</button>
+      </form>
     </dialog>
 
     <!-- New Item Modal -->
 
     <dialog id="newItem">
-        <form>
-            <button class="closeModal" type="button" autofocus>Close</button>
+      <form>
+        <button class="closeModal" type="button" autofocus>Close</button>
 
-            <label for="itemName">Item Name:</label>
-            <input type="text" id="itemName" name="itemName">
+        <label for="itemName">Item Name:</label>
+        <input type="text" id="itemName" name="itemName" />
 
-            <label for="itemDesc">Description Name:</label>
-            <textarea id="itemDesc" name="itemDesc" row="4" col="10"></textarea>
+        <label for="itemDesc">Description Name:</label>
+        <textarea id="itemDesc" name="itemDesc" row="4" col="10"></textarea>
 
-            <label for="itemDue">Due:</label>
-            <input type="date" id="itemDue" name="itemDue">
-            
-            <p>Item Priority</p>
-            <label for="high">High</label>
-            <input type="radio" id="high" name="priority" value="high">
-            <label for="medium">Medium</label>
-            <input type="radio" id="medium" name="priority" value="medium">
-            <label for="low">Low</label>
-            <input type="radio" id="low" name="priority" value="low">
+        <label for="itemDue">Due:</label>
+        <input type="date" id="itemDue" name="itemDue" />
 
-            <button id="itemSubmit" type="button">Submit</button>
-        </form>
+        <p>Item Priority</p>
+        <label for="high">High</label>
+        <input type="radio" id="high" name="priority" value="high" />
+        <label for="medium">Medium</label>
+        <input type="radio" id="medium" name="priority" value="medium" />
+        <label for="low">Low</label>
+        <input type="radio" id="low" name="priority" value="low" />
+
+        <button id="itemSubmit" type="button">Submit</button>
+      </form>
     </dialog>
-</body>
+  </body>
 </html>
