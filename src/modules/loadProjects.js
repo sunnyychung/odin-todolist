@@ -1,38 +1,37 @@
-import { projects, createProject } from "./newProject.js";
+import {projects, createProject} from './newProject.js';
 
 function populateStorage() {
-    createProject("Default");
+	createProject('Default');
 
-    localStorage.setItem("projects", JSON.stringify(projects));
+	localStorage.setItem('projects', JSON.stringify(projects));
 
-    updateStorage();
+	updateStorage();
 }
 
 function loadProjects() {
-    const stringProjects = localStorage.getItem("projects");
+	const stringProjects = localStorage.getItem('projects');
 
-    const parsedProjects = JSON.parse(stringProjects)
+	const parsedProjects = JSON.parse(stringProjects);
 
-    for (let key in parsedProjects) {
-        const project = createProject(key);
+	for (const key in parsedProjects) {
+		const project = createProject(key);
 
-        parsedProjects[key].itemList.forEach((item) => {
-            project.createItem(item.title, item.description, item.dueDate, item.priority);
-        })
-    }
+		parsedProjects[key].itemList.forEach(item => {
+			project.createItem(item.title, item.description, item.dueDate, item.priority);
+		});
+	}
 }
 
 function updateStorage() {
-    localStorage.setItem("projects", JSON.stringify(projects))
+	localStorage.setItem('projects', JSON.stringify(projects));
 }
 
 function loadAssets() {
-    if (!localStorage.getItem("projects")) {
-        populateStorage();
-    }
-    else {
-        loadProjects();
-    }
+	if (!localStorage.getItem('projects')) {
+		populateStorage();
+	} else {
+		loadProjects();
+	}
 }
 
-export { loadAssets, updateStorage };
+export {loadAssets, updateStorage};

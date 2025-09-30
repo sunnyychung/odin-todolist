@@ -1,94 +1,94 @@
-import { Item, createItemDOM } from "./newItem.js";
-import { clearItems } from "./newItem.js";
-import { projectSelected } from "./selectProject.js";
-import { updateStorage } from "./loadProjects.js";
-import deleteIcon from "../resources/imgs/crumpled-paper.png";
+import {Item, createItemDOM} from './newItem.js';
+import {clearItems} from './newItem.js';
+import {projectSelected} from './selectProject.js';
+import {updateStorage} from './loadProjects.js';
+import deleteIcon from '../resources/imgs/crumpled-paper.png';
 
-let projects = {};
+const projects = {};
 
 function addToProjects(project) {
-    projects[project.name] = project;
+	projects[project.name] = project;
 
-    updateStorage();
+	updateStorage();
 }
 
 function findProject(projectName) {
-    if (projects[projectName]) {
-        return projects[projectName];
-    }
+	if (projects[projectName]) {
+		return projects[projectName];
+	}
 }
 
 function projectsToDOM(project) {
-    addToProjects(project);
+	addToProjects(project);
 
-    const projectSelector = document.getElementById("projectList");
-    const projectOption = document.createElement("div");
-    projectOption.textContent = project.name;
-    projectOption.className = "project";
+	const projectSelector = document.getElementById('projectList');
+	const projectOption = document.createElement('div');
+	projectOption.textContent = project.name;
+	projectOption.className = 'project';
 
-    const deleteProject = document.createElement("input");
-    deleteProject.type = "image";
-    deleteProject.src = deleteIcon;
-    
-    deleteProject.addEventListener("click", () => {
-        delete projects[project.name];
-        updateStorage();
-        projectOption.remove();
-    })
+	const deleteProject = document.createElement('input');
+	deleteProject.type = 'image';
+	deleteProject.src = deleteIcon;
 
-    projectOption.appendChild(deleteProject);
+	deleteProject.addEventListener('click', () => {
+		delete projects[project.name];
+		updateStorage();
+		projectOption.remove();
+	});
 
-    projectOption.addEventListener("click", (target) => {
-        projectSelected(target.target.textContent);
-    })
+	projectOption.appendChild(deleteProject);
 
-    projectSelector.appendChild(projectOption);
+	projectOption.addEventListener('click', target => {
+		projectSelected(target.target.textContent);
+	});
 
-    projectSelected(project.name);
+	projectSelector.appendChild(projectOption);
+
+	projectSelected(project.name);
 }
 
 function createProject(projectName) {
-    return new Project(projectName);
+	return new Project(projectName);
 }
 
 class Project {
-    constructor(name) {
-        this.name = name;
-        this.itemList = [];
+	constructor(name) {
+		this.name = name;
+		this.itemList = [];
 
-        projectsToDOM(this);
-    }
+		projectsToDOM(this);
+	}
 
-    createItem(itemName, description, dueDate, priority) {
-        const newItem = new Item(itemName, description, dueDate, priority);
-        this.itemList.push(newItem);
+	createItem(itemName, description, dueDate, priority) {
+		const newItem = new Item(itemName, description, dueDate, priority);
+		this.itemList.push(newItem);
 
-        updateStorage();
-        clearItems();
-        this.getItems();
-    }
+		updateStorage();
+		clearItems();
+		this.getItems();
+	}
 
-    getItems() {
-        this.itemList.forEach((element, index) => {
-            const domList = document.querySelector(".list");
+	getItems() {
+		this.itemList.forEach((element, index) => {
+			const domList = document.querySelector('.list');
 
-            const { item, itemChecked, deleteItem } = createItemDOM(element, index);
+			const {item, itemChecked, deleteItem} = createItemDOM(element, index);
 
-            itemChecked.addEventListener("change", () => {
-                element.toggleStatus();
-                clearItems();
-                this.getItems();
-            });
+			itemChecked.addEventListener('change', () => {
+				element.toggleStatus();
+				clearItems();
+				this.getItems();
+			});
 
-            deleteItem.addEventListener("click", () => {
-                this.itemList.splice(index, 1);
-                clearItems();
-                this.getItems();
-            })
+			deleteItem.addEventListener('click', () => {
+				this.itemList.splice(index, 1);
+				clearItems();
+				this.getItems();
+			});
 
-            domList.appendChild(item);
-        })
-    }
+			domList.appendChild(item);
+		});
+	}
 }
 
-export { projects, createProject, findProject };
+export {projects, createProject, findProject};
