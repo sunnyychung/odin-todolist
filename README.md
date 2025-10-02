@@ -17,3 +17,5 @@ Styled after school whiteboard.
   <li>Proper Modal Styling</li>
   <li>Modal Input Checks</li>
 </ul>
+
+<a href="https://github.com/sunnyychung/odin-todolist">Link to To-Do Webpage</a>
