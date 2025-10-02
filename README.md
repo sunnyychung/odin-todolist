@@ -18,4 +18,4 @@ Styled after school whiteboard.
   <li>Modal Input Checks</li>
 </ul>
 
-<a href="https://github.com/sunnyychung/odin-todolist">Link to To-Do Webpage</a>
+<a href="https://github.com/sunnyychung/odin-todolist" _blank>Link to To-Do Project</a>
